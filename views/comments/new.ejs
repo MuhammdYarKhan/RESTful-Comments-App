@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Comment</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #f1f5f9;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 650px;
+        margin: auto;
+      }
+
+      .header {
+        background: #2563eb;
+        color: white;
+        text-align: center;
+        padding: 25px;
+        border-radius: 12px 12px 0 0;
+      }
+
+      .header p {
+        margin-top: 8px;
+        font-size: 14px;
+      }
+
+      .card {
+        background: white;
+        padding: 30px;
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      section {
+        margin-bottom: 22px;
+      }
+
+      label {
+        display: block;
+        color: #334155;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 13px 15px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        outline: none;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px #dbeafe;
+      }
+
+      textarea {
+        min-height: 140px;
+        resize: vertical;
+        line-height: 1.6;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 12px;
+        margin-top: 25px;
+      }
+
+      button,
+      .back {
+        padding: 12px 22px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      button {
+        background: #2563eb;
+        color: white;
+      }
+
+      button:hover {
+        background: #1d4ed8;
+      }
+
+      .back {
+        background: #e2e8f0;
+        color: #334155;
+      }
+
+      .back:hover {
+        background: #cbd5e1;
+      }
+
+      @media (max-width: 500px) {
+        .buttons {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Create New Comment</h1>
+        <p>Share your thoughts with us</p>
+      </div>
+
+      <div class="card">
+        <!-- Correct POST Form -->
+        <form action="/comments" method="POST">
+          <section>
+            <label for="username"> Enter Username </label>
+
+            <input
+              type="text"
+              id="username"
+              placeholder="Enter your username"
+              name="username"
+              required
+            />
+          </section>
+
+          <section>
+            <label for="comment"> Comment Text </label>
+
+            <textarea
+              id="comment"
+              name="comment"
+              placeholder="Write your comment here..."
+              required
+            ></textarea>
+          </section>
+
+          <div class="buttons">
+            <button type="submit">Submit Comment</button>
+
+            <a href="/comments" class="back"> Back to Comments </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

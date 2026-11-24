@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f9;
+            padding: 30px;
+        }
+
+        .header {
+            background: #2563eb;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .comment-card {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .comment-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .UserName {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        .Comment {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .details {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .details a {
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 9px 20px;
+            border-radius: 7px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .details a:hover {
+            background: #1d4ed8;
+        }
+
+        .new-comment {
+            display: inline-block;
+            background: #16a34a;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .new-comment:hover {
+            background: #15803d;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            .comment-card {
+                padding: 16px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>Recent Comments</h1>
+        <p>See what people are saying</p>
+    </header>
+
+    <div class="container">
+
+        <% for(let c of comments) { %>
+
+            <div class="comment-card">
+
+                <div class="comment-header">
+
+                    <div class="UserName">
+                        <%= c.username %>
+                    </div>
+
+                    <span>💬 Comment</span>
+
+                </div>
+
+                <div class="Comment">
+                    <%= c.comment %>
+                </div>
+
+                <div class="details">
+
+                    <a href="/comments/<%= c.id %>">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        <% } %>
+
+        <div class="footer">
+
+            <a href="/comments/new" class="new-comment">
+                + New Comment
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

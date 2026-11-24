@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Page</title>
+</head>
+<body>
+
+    <h1>Search Page</h1>
+    <!-- Search Form -->
+    <form action="/search" method="GET">
+        <label>Enter Search Term:</label>
+        <input type="text" name="q" placeholder="What are you looking for?"
+        >
+        <br><br>
+        <label>Select Section:</label>
+        <select name="section">
+            <option value="database">Programming</option>
+            <option value="database">Database</option>
+            <option value="web development">Web Development</option>
+        </select>
+        <br><br>
+        <button type="submit">Search</button>
+    </form>
+    <hr>
+
+    <% if (typeof q !== 'undefined' && q) { %>
+        <h2>Search Results</h2>
+        <p>Search Query: <%= q %></p>
+        <p>Section: <%= section %></p>
+    <% } %>
+</body>
+</html>
